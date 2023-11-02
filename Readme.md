@@ -7,3 +7,11 @@ kill the port & hit the server
 3. http://localhost:8080/
  
 ```
+
+####  POST
+![Post.jpg](docs%2FPost.jpg)
+
+#### PUT
+
+
+

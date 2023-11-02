@@ -1,10 +1,8 @@
 package com.techlover.springbootrestapi.controller;
 
 import com.techlover.springbootrestapi.bean.Student;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,5 +56,19 @@ public class StudentController {
     @GetMapping("students/query")
     public Student studentRequestVariable(@RequestParam int id, @RequestParam String firstName) { // we bind with the query params with the @ReqParam
         return new Student(id, firstName, "Morris");
+    }
+
+//    HTTP Post method
+//    http://localhost:8080/students/create
+//    {
+//        "id": 1,
+//            "firstName": "JOhn",
+//            "lastName":  "Morris"
+//    }
+    @PostMapping("/students/create")
+    @ResponseStatus(HttpStatus.CREATED) // this returns 201
+    public Student createStudent(@RequestBody Student student) { // reqBody retrieves http request body convert to javaobject (student)
+        System.out.println(student.getId()+" "+ student.getFirstName() + " - " + student.getLastName());
+        return student;
     }
 }
