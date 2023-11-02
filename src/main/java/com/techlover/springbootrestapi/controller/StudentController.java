@@ -3,6 +3,7 @@ package com.techlover.springbootrestapi.controller;
 import com.techlover.springbootrestapi.bean.Student;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -46,4 +47,10 @@ public class StudentController {
         return new Student(studentId, firstName, "Morris");
     }
 
+    //. handle query parameters
+//    http://localhost:8080/students/query?id=10
+    @GetMapping("students/query")
+    public Student studentRequestVariable(@RequestParam int id) { // we bind with the query params with the @ReqParam
+        return new Student(id, "HJoih", "Morris");
+    }
 }
