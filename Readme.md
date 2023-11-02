@@ -12,6 +12,8 @@ kill the port & hit the server
 ![Post.jpg](docs%2FPost.jpg)
 
 #### PUT
+![put.png](docs%2Fput.png)
+
 
 
 
