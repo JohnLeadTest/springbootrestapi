@@ -58,17 +58,34 @@ public class StudentController {
         return new Student(id, firstName, "Morris");
     }
 
-//    HTTP Post method
+//    HTTP POST method
 //    http://localhost:8080/students/create
 //    {
 //        "id": 1,
 //            "firstName": "JOhn",
 //            "lastName":  "Morris"
 //    }
+
+    // spring boot to handle POST request - create a new resource
     @PostMapping("/students/create")
     @ResponseStatus(HttpStatus.CREATED) // this returns 201
     public Student createStudent(@RequestBody Student student) { // reqBody retrieves http request body convert to javaobject (student)
         System.out.println(student.getId()+" "+ student.getFirstName() + " - " + student.getLastName());
         return student;
     }
+
+    // spring boot to handle put request - update existing resource
+    //    HTTP PUT method
+//    http://localhost:8080/students/1/update
+//    {
+//            "firstName": "JOhn",
+//            "lastName":  "Morris"
+//    }
+    @PutMapping("students/{id}/update")
+    public Student updateStudent(@PathVariable("id") int id,  @RequestBody  Student student) {
+        System.out.println(student.getId()+" "+ student.getFirstName() + " - " + student.getLastName());
+        return student;
+    }
+
+
 }
