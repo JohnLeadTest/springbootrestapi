@@ -2,6 +2,7 @@ package com.techlover.springbootrestapi.controller;
 
 import com.techlover.springbootrestapi.bean.Student;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -31,4 +32,12 @@ public class StudentController {
         students.add(new Student(1, "Stanky", "Nun"));
         return students;
     }
+
+    // spring boot rest api with path variable
+//    http://localhost:8080/students/1
+    @GetMapping("/students/{id}") // {id} is a url template variable
+    public Student studentPathVariable(@PathVariable("id") int studentId) { // Pathvariable("id") is bindinf with the url template {id}
+        return new Student(studentId, "HJoih", "Morris");
+    }
+
 }
