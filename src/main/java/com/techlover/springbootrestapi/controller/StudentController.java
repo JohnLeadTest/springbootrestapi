@@ -88,4 +88,12 @@ public class StudentController {
     }
 
 
+    // spring boot to handle delete request - delete existing resource
+//    http://localhost:8080/students/1/delete
+    @DeleteMapping("students/{id}/delete")
+    public String deleteStudent(@PathVariable("id") int studentId) {
+        return "deleted student " + studentId ;
+    }
+
+
 }
