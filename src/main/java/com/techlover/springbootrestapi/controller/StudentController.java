@@ -49,8 +49,14 @@ public class StudentController {
 
     //. handle query parameters
 //    http://localhost:8080/students/query?id=10
+//    @GetMapping("students/query")
+//    public Student studentRequestVariable(@RequestParam int id) { // we bind with the query params with the @ReqParam
+//        return new Student(id, "HJoih", "Morris");
+//    }
+
+    //    http://localhost:8080/students/query?id=10&firstName=Peter
     @GetMapping("students/query")
-    public Student studentRequestVariable(@RequestParam int id) { // we bind with the query params with the @ReqParam
-        return new Student(id, "HJoih", "Morris");
+    public Student studentRequestVariable(@RequestParam int id, @RequestParam String firstName) { // we bind with the query params with the @ReqParam
+        return new Student(id, firstName, "Morris");
     }
 }
