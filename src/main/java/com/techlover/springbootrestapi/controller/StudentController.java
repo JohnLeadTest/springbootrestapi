@@ -35,9 +35,15 @@ public class StudentController {
 
     // spring boot rest api with path variable
 //    http://localhost:8080/students/1
-    @GetMapping("/students/{id}") // {id} is a url template variable
-    public Student studentPathVariable(@PathVariable("id") int studentId) { // Pathvariable("id") is bindinf with the url template {id}
-        return new Student(studentId, "HJoih", "Morris");
+//    @GetMapping("/students/{id}") // {id} is a url template variable
+//    public Student studentPathVariable(@PathVariable("id") int studentId) { // Pathvariable("id") is bindinf with the url template {id}
+//        return new Student(studentId, "HJoih", "Morris");
+//    }
+
+//    http://localhost:8080/students/1/john
+    @GetMapping("/students/{id}/{firstName}") // {id} is a url template variable
+    public Student studentPathVariable(@PathVariable("id") int studentId, @PathVariable("firstName") String firstName) { // Pathvariable("id") is bindinf with the url template {id}
+        return new Student(studentId, firstName, "Morris");
     }
 
 }
