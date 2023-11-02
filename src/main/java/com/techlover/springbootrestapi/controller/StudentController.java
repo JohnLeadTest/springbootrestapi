@@ -2,6 +2,7 @@ package com.techlover.springbootrestapi.controller;
 
 import com.techlover.springbootrestapi.bean.Student;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,15 +11,27 @@ import java.util.List;
 @RestController
 public class StudentController {
 //    http://localhost:8080/student
+//    @GetMapping("student")
+//    public Student getStudent() {
+//        Student student = new Student(
+//                1,
+//                "John",
+//                "Morris"
+//        );
+//        return student;
+//    }
+
+    // replace the function using response entity
     @GetMapping("student")
-    public Student getStudent() {
+    public ResponseEntity<Student> getStudent() {
         Student student = new Student(
                 1,
                 "John",
                 "Morris"
         );
-        return student;
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
+
     // this returns a list of students as a json
 //    http://localhost:8080/students
     @GetMapping("/students")
