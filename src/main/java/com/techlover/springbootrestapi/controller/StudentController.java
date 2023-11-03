@@ -29,7 +29,8 @@ public class StudentController {
                 "John",
                 "Morris"
         );
-        return new ResponseEntity<>(student, HttpStatus.OK);
+//        return new ResponseEntity<>(student, HttpStatus.OK);
+        return ResponseEntity.ok().header("custom-header", "john morris").body(student);
     }
 
     // this returns a list of students as a json
